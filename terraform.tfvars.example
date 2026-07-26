@@ -1,0 +1,4 @@
+resource_group_name = "resource-group-001"
+owner_email         = "you@example.com"
+owner_platform      = "platform-name"
+date_delete_after   = "2026-12-31"

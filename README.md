@@ -5,6 +5,8 @@ This project is a minimal Terraform configuration for provisioning Azure resourc
 ## What this project contains
 
 - `providers.tf` - Terraform required version, provider source, and Azurerm provider configuration
+- `main.tf` - defines a basic Azure resource group using the provided variables
+- `variables.tf` - input variables for the resource group, location, owner metadata, and deletion date
 - `.terraform.lock.hcl` - pinned provider dependency versions for reproducible Terraform runs
 - `.gitignore` - ignores local Terraform working files and state artifacts
 
@@ -25,15 +27,22 @@ This project is a minimal Terraform configuration for provisioning Azure resourc
    ```bash
    terraform init
    ```
-4. Review the planned changes:
+4. Create a local `terraform.tfvars` file from the example template and fill in your values:
+   ```bash
+   cp terraform.tfvars.example terraform.tfvars
+   ```
+5. Review the planned changes:
    ```bash
    terraform plan
    ```
-5. Apply the configuration:
+6. Apply the configuration:
    ```bash
-   terraform apply
+   terraform apply \
+     -var 'owner_email=you@example.com' \
+     -var 'owner_platform=platform-name' \
+     -var 'date_delete_after=2026-12-31'
    ```
 
 ## Notes
 
-This repository currently contains the provider setup only. Add your Azure resource definitions to the Terraform configuration as needed.
+This repository currently provisions a simple Azure resource group. You can extend it with additional Azure resources as needed.
