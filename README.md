@@ -42,6 +42,13 @@ This project is a minimal Terraform configuration for provisioning Azure resourc
      -var 'owner_platform=platform-name' \
      -var 'date_delete_after=2026-12-31'
    ```
+7. Teardown the infrastructure when you no longer need it:
+   ```bash
+   terraform destroy \
+     -var 'owner_email=you@example.com' \
+     -var 'owner_platform=platform-name' \
+     -var 'date_delete_after=2026-12-31'
+   ```
 
 ## Notes
 
